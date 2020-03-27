@@ -4,10 +4,10 @@ from . import models
 
 from django.utils.safestring import mark_safe
 
-
+from actions import Actions
 
 # Register your models here.
-class ArticleAdmin(admin.ModelAdmin):
+class ArticleAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['image','titre']}),
         ('Standard', {'fields': ['auteur','contenu']}),
@@ -30,7 +30,7 @@ class ArticleAdmin(admin.ModelAdmin):
                                                                                                                                   
     
     
-class TagAdmin(admin.ModelAdmin):
+class TagAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['nom','description']}),
         ('Status',{'fields': ['status']})
@@ -46,7 +46,7 @@ class TagAdmin(admin.ModelAdmin):
     ordering = ['nom']
     list_per_page = 10
     
-class CommentaireAdmin(admin.ModelAdmin):
+class CommentaireAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['nom']}),
         ('Contenu',{'fields': ['article','site','commentaire']}),

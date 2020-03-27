@@ -3,10 +3,10 @@ from . import models
 
 from django.utils.safestring import mark_safe
 
-
+from actions import Actions
 
 # Register your models here.
-class SocialAccountAdmin(admin.ModelAdmin):
+class SocialAccountAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['icon','nom']}),
         ('Standard', {'fields': ['lien']}),
@@ -26,7 +26,7 @@ class SocialAccountAdmin(admin.ModelAdmin):
                                                                                                                                   
     
     
-class EquipeAdmin(admin.ModelAdmin):
+class EquipeAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['nom','prenom']}),
         ('Presentation',{'fields': ['image','poste','message']}),
@@ -46,7 +46,7 @@ class EquipeAdmin(admin.ModelAdmin):
     def image_views(self,obj):
         return mark_safe("<img src='{url}' width= 100px height=50px >".format(url=obj.image.url))
     
-class ServiceAdmin(admin.ModelAdmin):
+class ServiceAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['nom','description']}),
         ('Status',{'fields': ['status']})
@@ -61,7 +61,7 @@ class ServiceAdmin(admin.ModelAdmin):
     ordering = ['nom']
     list_per_page = 10
 
-class MessageAcceuilAdmin(admin.ModelAdmin):
+class MessageAcceuilAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['video','sujet','message']}),
         ('Status',{'fields': ['status']})
@@ -78,7 +78,7 @@ class MessageAcceuilAdmin(admin.ModelAdmin):
     
     
     
-class InfoAdmin(admin.ModelAdmin):
+class InfoAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['numero','address']}),
         ('Compte',{'fields': ['email','site']}),
@@ -94,7 +94,7 @@ class InfoAdmin(admin.ModelAdmin):
     ordering = ['numero']
     list_per_page = 10
     
-class TemoignageAdmin(admin.ModelAdmin):
+class TemoignageAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['nom','prenom','image']}),
         ('Poste',{'fields': ['travail','message']}),

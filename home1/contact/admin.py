@@ -4,11 +4,11 @@ from . import models
 
 from django.utils.safestring import mark_safe
 
-
+from actions import Actions
 
 # Register your models here.                                                                                                                                
     
-class ContactAdmin(admin.ModelAdmin):
+class ContactAdmin(Actions):
     
     fieldsets = [
         ('Presentation',{'fields': ['nom','email']}),
@@ -28,7 +28,7 @@ class ContactAdmin(admin.ModelAdmin):
                                                          
     
 
-class SuggestionAdmin(admin.ModelAdmin):
+class SuggestionAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['nom','email']}),
         ('Contenu',{'fields': ['sujet','message']}),
@@ -45,7 +45,7 @@ class SuggestionAdmin(admin.ModelAdmin):
     list_per_page = 10
     
     
-class NewsletterAdmin(admin.ModelAdmin):
+class NewsletterAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['email']}),
         ('Status',{'fields': ['status']})
