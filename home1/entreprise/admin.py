@@ -21,6 +21,8 @@ class SocialAccountAdmin(Actions):
     list_display_links = ['nom']
     ordering = ['nom']
     list_per_page = 10
+    readonly_fields = ['nom','date_add']
+
     
 
                                                                                                                                   
@@ -109,6 +111,8 @@ class TemoignageAdmin(Actions):
     list_display_links = ['nom']
     ordering = ['nom']
     list_per_page = 10
+    readonly_fields = ['nom','date_add']
+
     
  def image_views(self,obj):
         return mark_safe("<img src='{url}' width= 100px height=50px >".format(url=obj.image.url))

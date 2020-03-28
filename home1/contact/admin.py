@@ -24,8 +24,7 @@ class ContactAdmin(Actions):
     list_display_links = ['nom']
     ordering = ['nom']
     list_per_page = 10
-    
-                                                         
+    readonly_fields = ['nom','status']                                               
     
 
 class SuggestionAdmin(Actions):
@@ -59,6 +58,7 @@ class NewsletterAdmin(Actions):
     list_display_links = ['email']
     ordering = ['email']
     list_per_page = 10
+    readonly_fields = ['email','date_add']
 
     
 def _register(model,Admin_class):

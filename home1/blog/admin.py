@@ -23,6 +23,7 @@ class ArticleAdmin(Actions):
     list_display_links = ['titre']
     ordering = ['titre']
     list_per_page = 10
+    readonly_fields = ['image_view','titre']
     
     def image_views(self,obj):
         return mark_safe("<img src='{url}' width= 100px height=50px >".format(url=obj.image.url))
@@ -45,7 +46,8 @@ class TagAdmin(Actions):
     list_display_links = ['nom']
     ordering = ['nom']
     list_per_page = 10
-    
+    readonly_fields = ['nom','description']
+
 class CommentaireAdmin(Actions):
     fieldsets = [
         ('Presentation',{'fields': ['nom']}),
